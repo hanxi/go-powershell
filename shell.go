@@ -28,7 +28,7 @@ type shell struct {
 }
 
 func New(backend backend.Starter) (Shell, error) {
-	handle, stdin, stdout, stderr, err := backend.StartProcess("powershell.exe", "-NoExit", "-Command", "-")
+	handle, stdin, stdout, stderr, err := backend.StartProcess("powershell.exe", "-WindowStyle", "Hidden", "-NoExit", "-Command", "-")
 	if err != nil {
 		return nil, err
 	}
